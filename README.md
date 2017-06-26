@@ -12,6 +12,6 @@ This is a fork project which from google web store ([Tab Title Tweak](https://ch
 ```
 wrap, music.163.com, ZyL's Netease Music - {} - for listening.
 ```
-Then title will be  ZyL's Netease Music -网易云音乐 - for listening.
+Then title will be  ZyL's Netease Music - 网易云音乐 - for listening.
 
 
