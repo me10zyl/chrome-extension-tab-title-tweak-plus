@@ -1,10 +1,26 @@
 $(document).ready(function() {
 	restore_options();
-
+	f_restore_options();
 	$('#save-options').click(function() {
 		save_options();
 	});
+
+	$('#f-save-options').click(function(){
+		f_save_options();
+	});
 });
+
+// Save function options to localStorage.
+function f_save_options(){
+	var function_rules = document.getElementById("edit-functions");
+	try{
+		eval(function_rules.value);
+	}catch(e){
+		alert(e);
+	}
+	localStorage["ttt_function_rules"] = function_rules.value;
+};
+	
 
 // Saves options to localStorage.
 function save_options() {
@@ -66,5 +82,13 @@ function restore_options() {
 		// Preset a default if the value isn't set yet
 		rules_field.value = "prefix, *.local, LOCAL";
 		document.getElementById("status-defaults").style.display = "block";
+	}
+}
+
+function f_restore_options(){
+	var rules_value = localStorage["ttt_function_rules"];
+	var rules_field = document.getElementById("edit-functions");
+	if(rules_value){
+		rules_field.value = rules_value;
 	}
 }

@@ -3,6 +3,10 @@ chrome.extension.sendRequest({method: "get_rules"}, function(response) {
 	// No rules, don't do anything!
     return;
   }
+  
+  var function_rules = response.function_rules;
+
+  eval(function_rules);
 
   var rules = "";
   var match = [];
@@ -40,9 +44,24 @@ chrome.extension.sendRequest({method: "get_rules"}, function(response) {
 	  function changeTitle(title){
 			var target = document.querySelector("head > title");
 			var newTitle = document.createElement("title");
+			var funcs = /\$\{(.+?)\}/g;
+			var arrs = null;
+			do{
+				 arrs = funcs.exec(title);
+				 if(arrs != null){
+					 var value = eval(arrs[1]);
+					 title = title.replace('${'+arrs[1]+'}', value);
+				 }
+			}while(arrs != null);
+
 			newTitle.innerHTML = title;
 			target.parentElement.insertBefore(newTitle, target);
 		    target.parentElement.removeChild(target);
+	  }
+
+	  function changeIcon(){
+			var target = document.querySelector("link[rel*='icon']");
+			target.parentElement.removeChild(target);
 	  }
 
 	

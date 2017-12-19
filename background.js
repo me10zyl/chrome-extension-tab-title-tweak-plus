@@ -1,7 +1,7 @@
 function onRequest(request, sender, sendResponse) {
   if (request.method == "get_rules") {
     if (localStorage["ttt_rules"]) {
-  	sendResponse({rules: localStorage["ttt_rules"]});
+  	sendResponse({rules: localStorage["ttt_rules"], function_rules : localStorage["ttt_function_rules"]});
     }
     else {
   	sendResponse({rules: ""});

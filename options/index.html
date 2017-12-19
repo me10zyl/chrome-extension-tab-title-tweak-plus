@@ -53,6 +53,7 @@
 			<li><a class="active" href="#rules">Your Rules</a></li>
 			<li><a href="#instructions">Instructions</a></li>
 			<li><a href="#examples">Examples</a></li>
+			<li><a href="#functions">Functions</a></li>
 		</ul>
 
 		<!-- Standard <ul> with class of "tabs-content" -->
@@ -130,7 +131,15 @@
                         <li><em>Changing the rule to include the "s" will give you the opposite effect</em></li>
                     </ul>
                 </div>
-</li>
+			</li>
+			<li id="functions">
+				<h4>Define you functions here</h4>
+				<div class="monospaced bold">use ${funcname()} to Invoke.</div>
+				<textarea id="edit-functions" class="monospaced" name="edit-functions" rows="10" cols="90"></textarea>
+                <button id="f-save-options">Save</button>
+                <div id="f-status-success"></div>
+                <div id="f-status-error"></div>
+			</li>
 
 	</div><!-- container -->
 
